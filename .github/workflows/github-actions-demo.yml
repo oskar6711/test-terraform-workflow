@@ -1,0 +1,24 @@
+name: github-actions-demo-terraform
+
+on: [push]
+
+jobs:
+  run-terraform-code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+      
+      - name: Terraform init
+        run: |
+          terraform init
+      
+      - name: Terraform plan
+        run: |
+          terraform plan
+
+      - name: Terraform apply
+        run: |
+          terraform apply
